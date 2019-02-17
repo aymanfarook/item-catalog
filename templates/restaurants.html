@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+{% include "navbar.html" %}
+
+<div class="pane">
+<h1>Restaurants</h1>
+
+<a href="{{url_for('newRestaurant')}}" > <h3> New Restaurant </h3> </a>
+
+{% for restaurant in restaurants %}
+
+
+
+<a href = "{{url_for('restaurantMenu', restaurant_id = restaurant.id)}}"> <p>{{restaurant.name}}</p></a>
+
+<p><a href = "{{url_for('editRestaurant',restaurant_id = restaurant.id)}}">Edit the Restaurant</a></p>
+
+<p> <a href = "{{url_for('deleteRestaurant',restaurant_id = restaurant.id)}}">Delete the Restaurant</a> </p>
+
+
+
+
+{% endfor %}
+
+</div>
+</body>
+
+</html>
